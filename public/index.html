@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+</head>
+<body>
+
+
+<div class="wrapper">
+
+    <div class="modal">
+        <p class="modal__title">Welcome to the chat!</p>
+        <form action="" id="login">
+            <label for="name">User Name</label>
+            <input class="login__name" type="text" id="name" placeholder="Name">
+            <label for="nickname">User Nickname</label>
+            <input class="login__nickname" type="text" id="nickname" placeholder="Nickname">
+            <button id="login__btn" type="submit">Confirm</button>
+        </form>
+    </div>
+    <div class="content">
+        <aside class="sidebar user">
+            <ul id="user__list">
+                <li class="user__item">1</li>
+            </ul>
+        </aside>
+        <div class="messages">
+            <ul id="messages__list">
+                <li class="messages__item">
+                    <p class="messages__time">
+                        20
+                    </p>
+                    <span class="messages__author">
+                        Ivan
+                    </span>
+                    <p class="messages__text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto commodi deleniti
+                        eaque enim, itaque magni maxime necessitatibus non, odio pariatur provident quidem, quisquam
+                        reiciendis saepe sed suscipit tempore vitae.
+                    </p>
+                </li>
+            </ul>
+            <div class="messages__form-wrapper">
+                <form id="msg-board__form">
+                    <input type="text" id="msg-board__input" placeholder="Message">
+                    <button type="submit" id="msg-board__btn">Send</button>
+                </form>
+                <p class="messages__typing">
+
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

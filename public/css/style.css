@@ -1,0 +1,168 @@
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+p{
+    margin: 0;
+}
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    display: flex;
+}
+.content{
+ height: 100%;
+
+}
+
+.modal {
+    z-index: 1;
+    position: absolute;
+    background-color: #343B80;
+    color: #ffffff;
+    width: 400px;
+    height: 250px;
+    top: 50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.modal__title {
+    text-align: center;
+    margin: 0 0 30px 0;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+}
+
+#login label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#login input {
+    padding: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+#login__btn {
+    width: 40%;
+    align-self: flex-end;
+    border: none;
+    outline: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+#login__btn:hover {
+    background-color: #292F66;
+    color: #ffffff;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 25%;
+    height: 100%;
+  border: 2px solid black;
+
+}
+
+.messages {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+#messages__list{
+    height: 88%;
+    overflow: auto;
+    position: relative;
+    padding-left: 200px;
+    padding-bottom: 20px;
+}
+.messages__item{
+
+}
+
+.messages__form-wrapper {
+    height: 12%;
+    position: relative;
+}
+#msg-board__form{
+   display: flex;
+    justify-content: space-between;
+}
+#user__list{
+    display: flex;
+    flex-direction: column;
+}
+#msg-board__input{
+    width: 90%;
+
+}
+.messages__typing {
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: -20px;
+    z-index: 20;
+    background: #ffffff;
+}
+#msg-board__btn {
+    padding: 20px;
+    border-radius: 5px;
+}
+.messages__item{
+    position: relative;
+    width: 300px;
+    /*text-align: center;*/
+    padding: 25px 20px;
+    border: solid #5d67ea;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.messages__text{
+
+}
+
+.messages__time {
+    position: absolute;
+    right: 9px;
+    top:2px;
+
+}
+.messages__author {
+    position: absolute;
+    left:3px;
+    top:5px;
+}
+.user__status-offline {
+    color: red;
+}
