@@ -7,33 +7,10 @@
 (function () {
 
     let loginForm = document.querySelector('#login');
-    let submitBtn = document.getElementById('login__btn');
-    let userName = document.getElementById('login__name');
-    let nickName = document.getElementById('login__nickname');
     let messageForm = document.getElementById('msg-board__form');
-    let messageInput = document.getElementById('msg-board__input');
     let msgList = document.getElementById('messages__list');
     let usersList = document.getElementById('user__list');
     let modalWin = document.querySelector('.modal');
-
-
-
-    let ajaxRequest = function (options) {
-        let url = options.url || '/';
-        let method = options.method || 'GET';
-        let callback = options.callback || function () {
-            };
-        let data = options.data || {};
-        let xmlHttp = new XMLHttpRequest();
-        xmlHttp.open(method, url, true);
-        xmlHttp.setRequestHeader('Content-Type', 'application/json');
-        xmlHttp.send(JSON.stringify(data));
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.status === 200 && xmlHttp.readyState === 4) {
-                callback(xmlHttp.responseText);
-            }
-        };
-    };
 
 
     function getRequest(url, callback) {
@@ -43,10 +20,8 @@
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     data = JSON.parse(xhr.responseText);
-                    console.log(data);
                     callback(data);
                 } else {
-                    console.log(xhr.responseText);
                     console.log('Err');
                 }
             }
@@ -102,15 +77,13 @@
             let msgDate = document.createElement('p');
             let msgAuthor = document.createElement('span');
             let msgText = document.createElement('p');
-
             msgItem.className = 'messages__item';
             msgDate.className = 'messages__time';
             msgAuthor.className = 'messages__author';
             msgText.className = 'messages__text';
-
             msgDate.innerText = new Date(message.dateOfPost).toLocaleString().split(',  ');
-            msgAuthor.innerText = message.nickname;
-            // checkMessage(message.text);
+            msgAuthor.innerText = message.author;
+            checkMessage(message.text);
             msgText.innerText = message.text;
             msgItem.appendChild(msgText);
             msgItem.appendChild(msgAuthor);
@@ -119,35 +92,23 @@
             msgList.scrollTop = msgList.scrollHeight - msgList.offsetHeight;
         });
     }
-    // messageInput.addEventListener('input',()=>{
-    //     console.log(messageInput.value);
-    // });
 
-       // function checkMessage(text) {
-    //     text.split(' ').forEach((word)=>{
-    //         userNicks.forEach((nik)=>{
-    //             if(word==='@'+nik){
-    //                 console.log('bingo');
-    //                 let nicksArr = [...document.querySelectorAll('.user__nick')];
-    //                 nicksArr.forEach((elem)=>{
-    //                     if(elem.innerHTML===word){
-    //                         elem.style.color='red';
-    //                     }
-    //                 })
-    //             }
-    //         })
-    //     })
-    // }
 
-    function changeColor() {
+    function changeColor(nick) {
         let nicksArr = [...document.querySelectorAll('.user__nick')];
+        nicksArr.forEach((item) => {
+            if (item.innerHTML === nick) {
+                item.style.color = 'red';
+            }
+        })
     }
+
     function checkMessage(text) {
-        let nick;
-        text.split(' ').forEach((word)=>{
-            userNicks.forEach((nik)=>{
-                if(word==='@'+nik){
-                    console.log('bingo');
+        text.split(' ').forEach((word) => {
+            userNicks.forEach((nik) => {
+                nik = '@' + nik
+                if (word === nik) {
+                    changeColor(nik);
 
                 }
             })
@@ -219,7 +180,7 @@
             return;
         }
         let data = {
-            nickname: currentUser.nickname,
+            author: `${currentUser.name}  (@${currentUser.nickname})`,
             text: text,
             dateOfPost: Date.now()
         };
@@ -227,8 +188,6 @@
         messageForm['msg-board__input'].value = '';
         event.preventDefault();
     });
-
-
 
 
     setInterval(() => {

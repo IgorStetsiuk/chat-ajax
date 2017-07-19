@@ -28,22 +28,22 @@ p{
 }
 
 .modal {
-    z-index: 1;
+    z-index: 500;
     position: absolute;
-    background-color: #343B80;
+    background-color: #03a9f4;
     color: #ffffff;
-    width: 400px;
+    width: 300px;
     height: 250px;
-    top: 50%;
+    top: 30%;
     left: 50%;
     margin-top: -125px;
     margin-left: -200px;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .modal__title {
-    text-align: center;
+    text-align: right;
     margin: 0 0 30px 0;
     font-weight: bold;
     font-size: 1.3rem;
@@ -69,7 +69,7 @@ p{
 
 #login__btn {
     width: 40%;
-    align-self: flex-end;
+    align-self: center;
     border: none;
     outline: none;
     padding: 5px;
@@ -79,7 +79,7 @@ p{
 }
 
 #login__btn:hover {
-    background-color: #292F66;
+    background-color: #90caf9;
     color: #ffffff;
 }
 
@@ -91,7 +91,19 @@ p{
 .sidebar {
     width: 25%;
     height: 100%;
-  border: 2px solid black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    color: white;
+
+    background: #2196f3;
+}
+.sidebar__title {
+display: inline-block;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 
 }
 
@@ -101,14 +113,11 @@ p{
     flex-direction: column;
 }
 #messages__list{
-    height: 88%;
+    height: 80%;
     overflow: auto;
     position: relative;
     padding-left: 200px;
     padding-bottom: 20px;
-}
-.messages__item{
-
 }
 
 .messages__form-wrapper {
@@ -118,6 +127,7 @@ p{
 #msg-board__form{
    display: flex;
     justify-content: space-between;
+    padding-left: 15px;
 }
 #user__list{
     display: flex;
@@ -138,31 +148,47 @@ p{
 #msg-board__btn {
     padding: 20px;
     border-radius: 5px;
+    background: #2979ff;
+    color: white;
+    font-size: 20px;
 }
 .messages__item{
     position: relative;
-    width: 300px;
-    /*text-align: center;*/
-    padding: 25px 20px;
-    border: solid #5d67ea;
+    width: 350px;
+    padding: 30px 30px 30px;
+    border: solid #0288d1;
     border-radius: 5px;
     margin-bottom: 10px;
-}
-.messages__text{
-
+    box-shadow: 10px 10px 24px -1px rgba(0,0,0,0.14);
 }
 
 .messages__time {
     position: absolute;
     right: 9px;
     top:2px;
+    font-style: italic;
 
 }
 .messages__author {
     position: absolute;
     left:3px;
     top:5px;
+    width: 140px;
+    display: inline-block;
+  border-bottom: 1px solid #03A9F4;
+
 }
 .user__status-offline {
     color: red;
+}
+.user__status {
+    border-radius: 5px;
+    display: inline-block;
+    background: #07c52b;
+}
+.user__nick{
+    padding: 5px;
+}
+.user__item{
+    margin: 5px;
 }
